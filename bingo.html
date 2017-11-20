@@ -1,0 +1,112 @@
+<!--
+CISC 282 - Assignment 4
+BINGO
+Ashley Drouillard | 10183354 | 14aad4
+
+[X]Generate a bingo card as shown above.  
+[x]A number may appear only once per card.
+[x]The user will select a "goal" which is the requirement for a valid bingo.   Goals may be a single line (horizontal, vertical, diagonal or 4 corners) or a full card (all spaces).  
+
+[x]The "caller" will be controlled by the user as well.  This can be implemented by a button press.  When the user presses a button, a new number is "called" - for example, I-29.  The number should be displayed on the screen as the current number.  
+[X]click the space and the number is replaced by a "marker" that indicates that the number has been called.
+
+[x]When the user has a "BINGO", that is, the chosen goal has been achieved, they hit the "BINGO" button to stop the game.  At this point, your program should validate the bingo against the numbers that have been called.  
+[]If it is a valid bingo, the screen should be replaced with some congratulatory message (or picture.....your choice).    
+[x]If the bingo is invalid, the user should be informed and the game continues.
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    	<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+		<title>BINGO Game</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+		<link href="https://fonts.googleapis.com/css?family=Oswald:400,700" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="./css/bingo.css">
+	</head>
+	<body id="getNumber" onload="getNumber()">
+		<div class="container">
+			<div class="row text-center">
+				<div class="col-lg-12">
+					<h1>BINGO</h1>
+						<p>Fun interactive Bingo Game!</p>
+						<div id="numberCall"></div>
+						<br>
+						<button id="callNumber" class="btn btn-danger btn-sm" onclick="callNumber()">Call a Number</button>
+						<br>
+						<div id="listNum"></div>
+						<br>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+				<div class="row text-center">
+					<table>
+						<tr>
+							<th>B</th>
+							<th>I</th>
+							<th>N</th>
+							<th>G</th>
+							<th>O</th>
+						</tr>
+						<tr>
+							<td><div id="1x1" onclick="marker('1x1')"></div></td>
+							<td><div id="2x1" onclick="marker('2x1')"></div></td>
+							<td><div id="3x1" onclick="marker('3x1')"></div></td>
+							<td><div id="4x1" onclick="marker('4x1')"></div></td>
+							<td><div id="5x1" onclick="marker('5x1')"></div></td>
+						</tr>
+						<tr>
+							<td><div id="1x2" onclick="marker('1x2')"></div></td>
+							<td><div id="2x2" onclick="marker('2x2')"></div></td>
+							<td><div id="3x2" onclick="marker('3x2')"></div></td>
+							<td><div id="4x2" onclick="marker('4x2')"></div></td>
+							<td><div id="5x2" onclick="marker('5x2')"></div></td>
+						</tr>
+						<tr>
+							<td><div id="1x3" onclick="marker('1x3')"></div></td>
+							<td><div id="2x3" onclick="marker('2x3')"></div></td>
+							<td><div id="3x3" onclick="marker('3x3')"></div></td>
+							<td><div id="4x3" onclick="marker('4x3')"></div></td>
+							<td><div id="5x3" onclick="marker('5x3')"></div></td>
+						</tr>
+						<tr>
+							<td><div id="1x4" onclick="marker('1x4')"></div></td>
+							<td><div id="2x4" onclick="marker('2x4')"></div></td>
+							<td><div id="3x4" onclick="marker('3x4')"></div></td>
+							<td><div id="4x4" onclick="marker('4x4')"></div></td>
+							<td><div id="5x4" onclick="marker('5x4')"></div></td>
+						</tr>
+						<tr>
+							<td><div id="1x5" onclick="marker('1x5')"></div></td>
+							<td><div id="2x5" onclick="marker('2x5')"></div></td>
+							<td><div id="3x5" onclick="marker('3x5')"></div></td>
+							<td><div id="4x5" onclick="marker('4x5')"></div></td>
+							<td><div id="5x5" onclick="marker('5x5')"></div></td>
+						</tr>
+					</table>
+				</div>
+				<div style="text-align:center;">
+				<form>
+				<p> What kind of BINGO do you have?</p>
+	   					<select id="bingotype" name="goal">
+	   						<option value = 'Veritcal'>Vertical</option>
+	   						<option value = 'Horizontal'>Horizontal</option>
+	   						<option value = 'Diagonal'>Diagonal</option>
+	   						<option value = 'Four Corners'>Four Corners</option>
+	   						<option value = 'Full Card'>Full Card</option>
+	   					</select>
+	   			<br>
+	   			<br>
+	   			<input type="button" class="btn btn-danger btn-lg" onclick="bingoCheck()" value="BINGO!">
+	   			</form>
+				</div>
+		</div>
+		<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+		<script src="./js/bingo.js"></script>
+	</body>
+</html>
